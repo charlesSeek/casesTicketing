@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import {Cases} from '../collections/cases';
-import Faker from 'Faker';
+import faker from 'faker';
 import _ from 'lodash';
 Meteor.startup(() => {
   // code to run on server at startup
@@ -31,25 +31,25 @@ Meteor.startup(() => {
       const date12 = new Date('2016-12-01');
 
       const dates = [date1,date2,date3,date4,date5,date6,date7,date8,date9,date10,date11,date12];
-  		_.times(100,()=>{
+      _.times(100,()=>{
 
-	  		const title = Faker.Lorem.sentence();
-	  		const description = Faker.Lorem.paragraph();
-	  		const creator = Faker.Name.findName();
-        const creatorEmail = Faker.Internet.email();
-	  		//const createdAt = Faker.Date.between('2016-01-01','2016-07-01');
-        const createdAt = Faker.random.array_element(dates);
-	  		const updatedAt = createdAt;
-	  		const notes = [];
-	  		const status = "waitting for supporter processing";
-	  		const receiver = "none";
-	  		Cases.insert({
-	  			title,description,creator,createdAt,updatedAt,notes,status,receiver
-	  		})
-  		})
+        const title = faker.lorem.sentence();
+        const description = faker.lorem.paragraph();
+        const creator = faker.name.findName();
+        const creatorEmail = faker.internet.email();
+        //const createdAt = Faker.Date.between('2016-01-01','2016-07-01');
+        const createdAt = faker.random.arrayElement(dates);
+        const updatedAt = createdAt;
+        const notes = [];
+        const status = "waitting for supporter processing";
+        const receiver = "none";
+        Cases.insert({
+          title,description,creator,createdAt,updatedAt,notes,status,receiver
+        })
+      })
   }
   Meteor.publish('allCases',function(){
-  	return Cases.find({});
+    return Cases.find({});
   })
   Meteor.publish('supporterCasesList',function(status){
     return Cases.find({status:status});
@@ -58,7 +58,7 @@ Meteor.startup(() => {
     return Cases.find({status:status});
   })
   /*Meteor.publish('filterCases',function(keyword){
-  	return Cases.find({title:{$regex:".*"+keyword+".*"}});
+    return Cases.find({title:{$regex:".*"+keyword+".*"}});
   })*/
    Meteor.publish('currentSupporter',function(receiver){
     return Cases.find({receiver:receiver,status:'support processing'});
