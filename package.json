@@ -1,0 +1,20 @@
+{
+  "name": "casesTicketing",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "Faker": "^0.7.2",
+    "chart.js": "^1.1.1",
+    "faker": "^3.1.0",
+    "lodash": "^4.13.1",
+    "meteor-node-stubs": "^0.2.3",
+    "nodemailer": "^2.5.0",
+    "react": "^15.2.1",
+    "react-addons-pure-render-mixin": "^15.2.1",
+    "react-chartjs": "^0.8.0",
+    "react-dom": "^15.2.1",
+    "react-mounter": "^1.2.0"
+  }
+}

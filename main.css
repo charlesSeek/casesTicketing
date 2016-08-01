@@ -1,0 +1,18 @@
+input{
+	width:100%;
+	font-size:30px;
+	line-height: 60px;
+	color:#333;
+	font-size:2em;
+	margin:20;
+	border:2px;
+}
+form{
+	margin-bottom:20px;
+}
+a{
+	margin-right:10px;
+}
+button{
+	margin-right:10px;
+}
